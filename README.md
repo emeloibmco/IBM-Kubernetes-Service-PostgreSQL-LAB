@@ -1,7 +1,8 @@
 # IBM-IKS-Lab4
 Ejercicio con Aplicación en Angular en NodeJS base de datos PostgreSQL
 
-# DespliegueAppNode.jsKubernetes
+# Estructura de la aplicación
+
 
 Hands on para realizar el despliegue de una aplicación Node.js en kubernetes.
 
