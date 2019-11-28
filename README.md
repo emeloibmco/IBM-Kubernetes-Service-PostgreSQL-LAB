@@ -70,7 +70,7 @@ Ejemplo: docker run -p 8000:3000 -d appnode
 
 Luego puede verificar el despliegue en el localhost:8000, el localhost depende del que usted asigno para su aplicación, en este caso es el 8000, para verificar en su navegador ingrese localhost:8000 y podrá ver su aplicación como se ve a continuación.
 
-<img width="928" alt="Recorte2" src="https://user-images.githubusercontent.com/40369712/68488783-cc184c00-0213-11ea-9031-32f72eb25498.png">
+<img width="928" alt="Recorte2" src="https://user-images.githubusercontent.com/40369712/69816694-e4520a00-11c6-11ea-80fa-871840e59884.png">
 
 ## Creacion y despliegue de una imagen en el clúster de kubernetes creado previamente
 
@@ -99,14 +99,14 @@ ibmcloud cr namespace-add <my_namespace>
 
 Ejemplo: ibmcloud cr namespace-add pruebanamespace
 ```
-<img width="500" height="150" alt="7" src="https://user-images.githubusercontent.com/50923637/68423795-bbfb6080-0170-11ea-84d4-e631ddbbebc7.png">
+<img width="500" height="150" alt="7" src="https://user-images.githubusercontent.com/40369712/69817031-a86b7480-11c7-11ea-8d8f-bb69f37a1745.png">
 
 Luego debe crear la imagen docker en el container register de IBM Cloud, para realizar esta acción debe ejecutar los siguientes comandos y podrá ver lo que aparece en la siguiente imagen, donde aparecen todos los namespaces que tenga creados.
 
 ```
 ibmcloud cr build --tag us.icr.io/<namespace>/<nombre de la imagen> .
-Ejemplo: ibmcloud cr build --tag us.icr.io/pruebanamespace/appnodemongos .
-ibmcloud cr namespace-list
+Ejemplo:    ibmcloud cr build --tag us.icr.io/pruebanamespace/appnodepostgresql .
+            ibmcloud cr namespace-list
 ```
 
 <img width="500" alt="8" src="https://user-images.githubusercontent.com/50923637/68424929-067ddc80-0173-11ea-9705-d2ed048abd72.png">
