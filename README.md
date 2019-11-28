@@ -54,7 +54,7 @@ Después de ejecutar el comando le aparecerán varios datos de la compilación d
 Luego usted debe verificar que se ha creado la imagen Docker eso lo realiza con el siguiente comando.
 
 ```
-docker 	images
+docker images
 ```
 
 Luego debe correr la imagen docker que se previamente creo, para esto debe ejecutar el siguiente comando, donde debe modificar el puerto de salida, el puerto de entrada y el nombre de la imagen. 
@@ -62,7 +62,7 @@ Luego debe correr la imagen docker que se previamente creo, para esto debe ejecu
 `Nota: El puerto está en el 3000 por defecto, pero si usted desea que se realice a otro puerto debe realizar el mapeo sobre el puerto al que quiere exponer la aplicación, en este caso se mapeo para exponer la aplicación en el puerto 8000.`
 
 ```
-docker 	run -p <Port de salida>:<Port de entrada> -d <nombre de la imagen>
+docker run -p <Port de salida>:<Port de entrada> -d <nombre de la imagen>
 Ejemplo: docker run -p 8000:3000 -d appnode
 ```
 
@@ -84,6 +84,11 @@ ibmcloud login -a cloud.ibm.com -r <region> -g <grupo de recursos>
 Ejemplo: ibmcloud login -a cloud.ibm.com -r us-east -g app-demo
 ```
 
+Inicio de sesion en IBM Cloud Container Registry
+
+```
+ibmcloud cr login
+```
 Descarga de los archivos de configuracion para el cluster
 
 ```
@@ -91,25 +96,40 @@ ibmcloud ks cluster config --cluster <ID_Cluster>
 Ejemplo: ibmcloud ks cluster config --cluster bl1gdkaw09sj8dmer1cg
 ```
 
-
 Luego de realizar el paso anterior usted debe crear el namespace donde alojara su aplicación, para hacer eso usted debe ejecutar el siguiente comando en su terminal.
 
 ```
 ibmcloud cr namespace-add <my_namespace>
-
 Ejemplo: ibmcloud cr namespace-add pruebanamespace
 ```
 <img width="500" height="150" alt="7" src="https://user-images.githubusercontent.com/40369712/69817031-a86b7480-11c7-11ea-8d8f-bb69f37a1745.png">
 
-Luego debe crear la imagen docker en el container register de IBM Cloud, para realizar esta acción debe ejecutar los siguientes comandos y podrá ver lo que aparece en la siguiente imagen, donde aparecen todos los namespaces que tenga creados.
+Luego debe hacer el push de la imagen local que se ha creado anteriormente, para esto es necesario renombrar la imagen docker con el formato neceario para hacer el push, para esto desde la linea de comando ejecutamos el siguiente comando.
 
 ```
-ibmcloud cr build --tag us.icr.io/<namespace>/<nombre de la imagen> .
-Ejemplo:    ibmcloud cr build --tag us.icr.io/pruebanamespace/appnodepostgresql .
-            ibmcloud cr namespace-list
+docker tag <source_image>:<tag> <region>.icr.io/<my_namespace>/<new_image_repo>:<new_tag>
+Ejemplo: docker tag postgresqlapp us.icr.io/pruebanamespace/postgresqlapp
 ```
+para verifiacr que la imagen tenga el nuevo tag, puede ejecutar el siguiente comando.
+```
+docker images
+```
+![image](https://user-images.githubusercontent.com/40369712/69827008-9992bb00-11e3-11ea-92c6-17df458641f3.png)
 
-<img width="500" alt="8" src="https://user-images.githubusercontent.com/50923637/68424929-067ddc80-0173-11ea-9705-d2ed048abd72.png">
+Una vez renombrada la imagen, ya puede relizar el push de la imagen en el Container Registry
+
+```
+docker push <region>.icr.io/<my_namespace>/<image_repo>:<tag>
+Ejemplo:    docker push us.icr.io/pruebanamespace/postgresqlapp
+```
+![image](https://user-images.githubusercontent.com/40369712/69827093-f68e7100-11e3-11ea-91f8-ca74554cd465.png)
+
+Para verificar que la imagen locar se haya cargado correctamente ejecutamos el siguiente comando.
+
+```
+ibmcloud cr image-list
+```
+![image](https://user-images.githubusercontent.com/40369712/69827293-b4b1fa80-11e4-11ea-9a6c-6a7d3558a4b4.png)
 
 Despues de eso debe crear el servicio del despliegue en kubernetes para realizar eso ejecutara los siguientes comandos y para verificar que se realizo correctamente vera la siguiente imagen.
 
@@ -174,3 +194,5 @@ Verifique en su navegador la aplicación en la dirección como vera a continuaci
       https://nodejs.org/de/docs/guides/nodejs-docker-webapp/
 * Instalacion de docker en SO Ubuntu
       https://docs.docker.com/install/linux/docker-ce/ubuntu/
+* Iniciación a IBM Cloud Container Registry
+      https://cloud.ibm.com/docs/Registry?topic=registry-getting-started
