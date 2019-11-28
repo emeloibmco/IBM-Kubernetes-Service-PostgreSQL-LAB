@@ -28,17 +28,16 @@ A continuación se presenta un Hands on para realizar el despliegue de esta apli
 
 Para poder correr la imagen localmente, primero debe descargar o clonar el Git, luego debe abrir en la terminal la carpeta del proyecto que descargo del Git y descomprimió.
 
-Luego debe abrir la terminal en la carpeta y copiar la ruta de la misma, e iniciar sesión en consola como super usuario, a continuación, vera el código de cómo acceder como super usuario a la carpeta.
+![image](https://user-images.githubusercontent.com/40369712/69812571-64c03d00-11be-11ea-90df-bbcd1cbc5a50.png)
 
-<img width="927" alt="Recorte1" src="https://user-images.githubusercontent.com/40369712/68488077-4ba51b80-0212-11ea-8703-0189f18b7195.png">
+Luego debe abrir la terminal en la carpeta y copiar la ruta de la misma, e iniciar sesión en consola como super usuario, a continuación, vera el código de cómo acceder como super usuario a la carpeta.
 
 ```
 sudo –i
 cd ..
 cd  home/user/<Ruta del proyecto>
 ```
-<img width="500" alt="2" src="https://user-images.githubusercontent.com/50923637/68408076-b5f68700-0152-11ea-9283-a4583fd0b55d.png">
-
+![image](https://user-images.githubusercontent.com/40369712/69813100-866df400-11bf-11ea-944d-80d8b27465a5.png)
 `Nota: En el recuadro amarillo está el usuario correspondiente a su máquina.`
 
 Luego usted debe crear la imagen Docker con el Docker local, para realizar esta acción debe ejecutar el siguiente comando tal cual como esta sin omitir puntos ni nada, lo único que debe modificar es el espacio donde esta el nombre de la imagen por el nombre que usted desee asignar, para esto si debe quitar los símbolos de mayor y menor.
@@ -50,7 +49,7 @@ Ejemplo: docker build -t appnode .
 
 Después de ejecutar el comando le aparecerán varios datos de la compilación del comando, pero debe estar pendiente de que al final de todo pueda ver lo siguiente que es la confirmación de la creación de la imagen, donde vera primero el ID y luego la etiqueta de la imagen.
 
-<img width="500" height="50" alt="3" src="https://user-images.githubusercontent.com/50923637/68408681-cbb87c00-0153-11ea-8ec3-47666ce80af8.png">
+<img width="500" height="50" src=https://user-images.githubusercontent.com/40369712/69813423-2f1c5380-11c0-11ea-8988-2ca48434064c.png>
 
 Luego usted debe verificar que se ha creado la imagen Docker eso lo realiza con el siguiente comando.
 
@@ -64,7 +63,7 @@ Luego debe correr la imagen docker que se previamente creo, para esto debe ejecu
 
 ```
 docker 	run -p <Port de salida>:<Port de entrada> -d <nombre de la imagen>
-Ejemplo: docker 	run -p 8000:3000 -d appnode
+Ejemplo: docker run -p 8000:3000 -d appnode
 ```
 
 <img width="700" alt="4" src="https://user-images.githubusercontent.com/50923637/68409894-e5f35980-0155-11ea-870e-f6b3e7edc736.png">
