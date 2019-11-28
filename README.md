@@ -66,7 +66,7 @@ docker 	run -p <Port de salida>:<Port de entrada> -d <nombre de la imagen>
 Ejemplo: docker run -p 8000:3000 -d appnode
 ```
 
-<img width="700" alt="4" src="https://user-images.githubusercontent.com/50923637/68409894-e5f35980-0155-11ea-870e-f6b3e7edc736.png">
+<img width="700" alt="4" src="https://user-images.githubusercontent.com/40369712/69813896-24ae8980-11c1-11ea-8d58-29fb6354b847.png">
 
 Luego puede verificar el despliegue en el localhost:8000, el localhost depende del que usted asigno para su aplicación, en este caso es el 8000, para verificar en su navegador ingrese localhost:8000 y podrá ver su aplicación como se ve a continuación.
 
