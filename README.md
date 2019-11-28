@@ -135,19 +135,19 @@ Despues de eso debe crear el servicio del despliegue en kubernetes para realizar
 
 ```
 kubectl create deployment <nombreimagen> --image=us.icr.io/<manespace>/<nombreimagen> 
-Ejemplo: kubectl create deployment appnodemongos --image=us.icr.io/pruebanamespace/appnodemongos
+Ejemplo: kubectl create deployment postgresqlapp --image=us.icr.io/pruebanamespace/postgresqlapp
 ```
 
-<img width="900" height="30" alt="9" src="https://user-images.githubusercontent.com/50923637/68425142-768c6280-0173-11ea-8b9c-c55af3cca981.png">
+<img width="900" height="30" alt="9" src="https://user-images.githubusercontent.com/40369712/69827480-a57f7c80-11e5-11ea-9d20-1eeb21a85096.png">
 
 Luego usted debe exponer la imagen docker en el puerto que configuro.
 
 ```
 kubectl expose deployment/<nombreimagen> --type=NodePort --port=<Port entrada>
-Ejemplo: kubectl expose deployment/appnodemongos --type=NodePort --port=3000
+Ejemplo: kubectl expose deployment/postgresqlapp --type=NodePort --port=3000
 ```
 
-<img width="900" height="30" alt="10" src="https://user-images.githubusercontent.com/50923637/68425518-409bae00-0174-11ea-9ff3-2453eb3cc566.png">
+<img width="900" height="30" alt="10" src="https://user-images.githubusercontent.com/40369712/69827551-d2339400-11e5-11ea-9f76-270d9a596d6f.png">
 
 
 ## Verificación del despliegue de la imagen.
@@ -158,7 +158,7 @@ Para verificar el despliegue de la imagen usted primero debe verificar el nombre
 ibmcloud cs clusters
 ```
 
-<img width="700" alt="11" src="https://user-images.githubusercontent.com/50923637/68425917-07177280-0175-11ea-8739-bb5635dbd58a.png">
+<img width="700" alt="11" src="https://user-images.githubusercontent.com/40369712/69827624-29396900-11e6-11ea-8326-a3e5587869a4.png">
 
 Despues debe tomar nota de la ip publica del cluster ejecutando el siguiente comando.
 
@@ -167,7 +167,7 @@ ibmcloud cs workers <nombre del cluster>
 Ejemplo: ibmcloud cs workers iks-demo
 ```
 
-<img width="700" alt="12" src="https://user-images.githubusercontent.com/50923637/68426065-5493df80-0175-11ea-86ba-9b9b3e96063c.png">
+<img width="700" alt="12" src="https://user-images.githubusercontent.com/40369712/69827689-70bff500-11e6-11ea-886a-2344f905a67f.png">
 
 Luego debe verificar el nombre del servicio que se ha creado, esta acción la puede realizar ejecutando el siguiente comando. 
 
@@ -175,16 +175,16 @@ Luego debe verificar el nombre del servicio que se ha creado, esta acción la pu
 kubectl get services
 ```
 
-<img width="500" height="100" alt="13" src="https://user-images.githubusercontent.com/50923637/68426247-b3f1ef80-0175-11ea-84c4-3118a0cc3daf.png">
+<img width="500" height="100" alt="13" src="https://user-images.githubusercontent.com/40369712/69827737-a82ea180-11e6-11ea-9905-0f4dd0151bf6.png">
 
 Verifique en su navegador la aplicación en la dirección como vera a continuación: 
 
 ```
 <IP publica>:<NodePort>
-169.47.168.98:30925
+169.47.168.98:31832
 ```
 
-<img width="500" alt="13" src="https://user-images.githubusercontent.com/50923637/68426378-016e5c80-0176-11ea-9700-2dcfc4c10be1.png">
+![image](https://user-images.githubusercontent.com/40369712/69827791-f348b480-11e6-11ea-9825-d7e1d07b8a3f.png)
 
 ## Referencias
 
