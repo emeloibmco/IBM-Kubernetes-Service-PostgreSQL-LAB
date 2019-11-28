@@ -3,7 +3,7 @@ Ejercicio con Aplicación en Angular en NodeJS base de datos PostgreSQL
 
 # Estructura de la aplicación
 
-Se tiene una aplicación construida para realizar el CRUD de los datos correspondientes a peliculas, como lo son su identificador ID, el titulo, una descripcion, su director y el año en la cual fue el estreno de la misma; En la parte del cliente esta construida con Angular_Js y por la parte del servidor Node_Js, con un almacenamiento en la base de datos relacional Postgresql.
+Se tiene una aplicación construida para realizar el CRUD del registro de peliculas, como lo son su identificador ID, el titulo, una descripcion, su director y el año en la cual fue el estreno de la misma; En la parte del cliente esta construida con Angular_Js y por la parte del servidor Node_Js, con un almacenamiento en la base de datos relacional Postgresql.
 
 ![Arquitectura Postgresql](https://user-images.githubusercontent.com/40369712/69654066-30277680-1042-11ea-99d7-7cb1d1b98ca1.jpg)
 
@@ -18,7 +18,7 @@ A continuación se presenta un Hands on para realizar el despliegue de esta apli
 * Verificación del despliegue de la imagen.
 * Referencias.
 
-## Requisitos previos
+## Prerrequisitos
 
 * Tener creada una aplicación de node.js.
 * Tener un clúster aprovisionado y configurado correctamente.
