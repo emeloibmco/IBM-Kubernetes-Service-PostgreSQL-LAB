@@ -15,7 +15,7 @@ var expect = require('chai').expect;
 var http = require('http');
 
 // Below code demonstrates using various methods of testing
-describe('Testing Server', function() { 
+describe('Testing Server', function() {
   let test_server;
   this.timeout(0);
 
@@ -39,7 +39,7 @@ describe('Testing Server', function() {
       });
 
       response.on('end', function () {
-        expect(responseString).to.include('You need to enable JavaScript to run this app.');
+        expect(responseString).to.include('You are currently running a Node.js app built for the IBM Cloud.');
         done();
       });
     };

@@ -1,0 +1,93 @@
+<section>
+    <header id="flex-header">
+        <div class="cloud-header"></div>
+		<h3>IBM Cloud - App MEAN</h3>
+    </header>
+    <main>
+		 <div class="container" ng-init="get()" style="display: flex;justify-content: center;">
+		 	<div style="width: 900px;">
+		    	<table>
+				<tr>
+		    		  <td  cols="12" align="right">
+		    		  <label>Id</label>
+		    		  </td>
+		    		  <td>
+		              <input ng-model="id" type="text" name="id" cols="40">
+		          	  </td>
+		        </tr>
+		    	<tr>
+		    		  <td  cols="12" align="right">
+		    		  <label>Title</label>
+		    		  </td>
+		    		  <td>
+		              <input ng-model="title" type="text" name="title" cols="40">
+		          	  </td>
+		        </tr>
+		        <tr>
+		        	  <td  cols="12" align="right">
+		        	  <label>Description</label>
+		        	  </td>
+		        	  <td>
+		              <textarea ng-model="description"  name="description" cols="60"></textarea>
+		          	  </td>
+		         </tr>
+ 				 <tr>
+		        	  <td  cols="12" align="right">
+		    		  <label>Director</label>
+		    		  </td>
+		    		  <td>		    	
+		              <input ng-model="director" type="text" name="director" cols="30">
+		              </td>
+		         </tr>
+ 				 <tr>
+		        	  <td  cols="12" align="right">
+		    		  <label>Year</label>		        
+		    		  </td>
+		    		  <td>
+		              <input ng-model="year" type="text" name="year" cols="6">
+		          	  </td>
+		         </tr>
+		         <tr>
+		         	<td></td>
+		         	<td>
+			        <button ng_click="get()">
+			        	List
+			        </button>
+		
+			        <button ng_click="add()">
+			        	Add
+			        </button>	        
+
+			        <button ng_click="update()">
+			        	Update
+			        </button>	
+			      	<button ng_click="delete()">
+			        	Delete
+			        </button>	
+			        </td>         
+		         </tr>
+				 </table>
+				 <br/>
+				 <br/>	        
+		        <table class="table table-bordered table-sm">
+					<thead>
+						<tr>
+								<th>id</th>
+								<th cols="30">title </th>
+								<th cols="200">description</th>
+								<th cols="25">director</th>
+								<th cols="25">year</th>
+						</tr>			
+						<tr ng-repeat="movie in movies">
+								<td>{{movie.id}}</td>
+								<td>{{movie.title}}</td>
+								<td>{{movie.description}}</td>
+								<td>{{movie.director}}</td>
+								<td>{{movie.year}}</td>
+						</tr>
+					</thead>
+				</table>
+		    </div>
+		 </div>
+	</main>		 
+</section>

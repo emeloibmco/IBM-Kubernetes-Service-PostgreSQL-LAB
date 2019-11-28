@@ -2,13 +2,12 @@
 apiVersion: serving.knative.dev/v1alpha1
 kind: Service
 metadata:
-  name: meanstackmongodbexpressjsangularnodejslnlk
+  name: appnodejspostgresql
   namespace: default
 spec:
   template:
     spec:
       containers:
-        - image: REGISTRY_URL/replace-me-namespace/meanstackmongodbexpressjsangularnodejslnlk
-          imagePullPolicy: Always
+        - image: REGISTRY_URL/replace-me-namespace/appnodejspostgresql:BUILD_NUMBER
           ports:
             - containerPort: 3000

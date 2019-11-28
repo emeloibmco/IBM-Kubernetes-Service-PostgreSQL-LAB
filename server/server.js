@@ -10,7 +10,7 @@ var bodyParser = require('body-parser');
 
 // inicio
 // Importar Modulo Movies
-var Movie = require('./routers/Postgres');
+var Movie = require('./routers/Postgresql');
 
 
 const logger = log4js.getLogger(appName);
@@ -23,14 +23,14 @@ require('./services/index')(app);
 require('./routers/index')(app, server);
 
 // Movies APIs
-
+// Show movie
 app.get("/api/movies", function(req, res, next) {
   Movie.model.findAll().then(function (user) {
 		res.json(user);
 	});
 });
 
-// show movie
+// Show movie
 app.get("/api/movies/:id", function(req, res, next) {
 Movie.model.findOne({
     where: {
@@ -41,7 +41,7 @@ Movie.model.findOne({
   });
 });
 
-// add new movie
+// Add new movie
 app.post("/api/movies", function(req, res, next) { 
   Movie.model.create({
       id: req.body.id,
@@ -54,7 +54,7 @@ app.post("/api/movies", function(req, res, next) {
   }); 
 });
 
-// update Movie
+// Update Movie
 app.put("/api/movies/:id", function(req, res, next) {
 Movie.model.findOne({
     where: {

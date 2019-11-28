@@ -21,15 +21,39 @@
 
 'use strict';
 
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const Sequelize = require('sequelize');
+const sequelize = require('../routers/Postgresql');
 
-var MoviesSchema = new Schema({
-  title: String,
-  director: String,
-  description: String,
-  year: String
-});
-
-var model = mongoose.model('Movie', MoviesSchema);
-module.exports = model;
+  //Modelo de datos/* 
+	/* var model = sequelize.define('movie', {
+		id: {
+		  type: Sequelize.INTEGER,
+		  primaryKey: true
+		},
+		title: {
+		  type: Sequelize.STRING
+		},
+		description: {
+		  type: Sequelize.STRING
+		},
+		director: {
+		  type: Sequelize.STRING
+		},
+		year: {
+		  type: Sequelize.INTEGER
+		}
+	  }, {
+		freezeTableName: true // Model tableName will be the same as the model name
+	  });
+	  
+	  model.sync({force: true}).then(function () {
+		// Table created
+		  return model.create({
+			id: '123',
+		  	title: 'John Hancock',
+			description: 'prueba de coneccion',
+			director: 'Charles P',
+			year: '2005'
+		  });
+	  });
+    module.exports = model; */

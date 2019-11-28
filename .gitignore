@@ -24,7 +24,6 @@ yarn-error.log*
 .ibm-project
 
 # post npm install
-public/
 
 server/localdev-config.json
 vcap-local.js
