@@ -33,7 +33,7 @@
     "express-session": "^1.15.2",
     "finalhandler": "1.1.2",
     "ibm-cloud-env": "^0",
-    "log4js": "^3.0.5",
+    "log4js": "^6.4.0",
     "merge-descriptors": "1.0.1",
     "pg": "^7.12.1",
     "pg-hstore": "^2.3.3",
